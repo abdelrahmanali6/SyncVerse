@@ -1,0 +1,6 @@
+@SyncVerse.API_HostAddress = http://localhost:5174
+
+GET {{SyncVerse.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
