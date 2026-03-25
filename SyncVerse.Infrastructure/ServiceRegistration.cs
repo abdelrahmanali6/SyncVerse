@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SyncVerse.Domain;
+using Microsoft.AspNetCore.Identity;
+using SyncVerse.Infrastructure;
 
 namespace SyncVerse.Infrastructure
 {
@@ -11,7 +12,7 @@ namespace SyncVerse.Infrastructure
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<ApplicationUser, Microsoft.AspNetCore.Identity.IdentityRole>()
+            services.AddIdentityCore<ApplicationUser>()
                 .AddEntityFrameworkStores<AppDbContext>();
             return services;
         }
