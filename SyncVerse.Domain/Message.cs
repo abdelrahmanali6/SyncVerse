@@ -8,7 +8,6 @@ namespace SyncVerse.Domain
         public DateTime CreatedAt { get; set; }
         public DateTime? EditedAt { get; set; }
         public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
         public Guid ChannelId { get; set; }
         public Channel Channel { get; set; }
         public Guid? ReplyToMessageId { get; set; }

@@ -6,7 +6,6 @@ namespace SyncVerse.Domain
         public Guid MessageId { get; set; }
         public Message Message { get; set; }
         public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
         public string Emoji { get; set; }
     }
 }

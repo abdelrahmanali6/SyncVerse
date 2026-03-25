@@ -6,7 +6,6 @@ namespace SyncVerse.Domain
         public Guid ServerId { get; set; }
         public string UserId { get; set; }
         public Server Server { get; set; }
-        public ApplicationUser User { get; set; }
         public string? Nickname { get; set; }
         public bool IsOwner { get; set; }
     }

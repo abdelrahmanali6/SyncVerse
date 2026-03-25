@@ -8,7 +8,6 @@ namespace SyncVerse.Domain
         public string ContentType { get; set; }
         public long Size { get; set; }
         public string UploadedById { get; set; }
-        public ApplicationUser UploadedBy { get; set; }
         public DateTime UploadedAt { get; set; }
     }
 }

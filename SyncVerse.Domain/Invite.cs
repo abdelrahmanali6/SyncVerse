@@ -10,6 +10,5 @@ namespace SyncVerse.Domain
         public DateTime CreatedAt { get; set; }
         public DateTime? ExpiresAt { get; set; }
         public string? InvitedUserId { get; set; }
-        public ApplicationUser? InvitedUser { get; set; }
     }
 }
