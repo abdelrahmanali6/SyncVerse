@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "6613CLQvznQ=",
+  "dgSpecHash": "eM0dm3sckds=",
   "success": true,
   "projectFilePath": "/Users/abdelrahmanali/Documents/SyncVerse/SyncVerse.Application/SyncVerse.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/abdelrahmanali/.nuget/packages/microsoft.extensions.configuration.abstractions/9.0.0-preview.3.24172.9/microsoft.extensions.configuration.abstractions.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "/Users/abdelrahmanali/.nuget/packages/microsoft.extensions.primitives/9.0.0-preview.3.24172.9/microsoft.extensions.primitives.9.0.0-preview.3.24172.9.nupkg.sha512"
+  ],
   "logs": []
 }
