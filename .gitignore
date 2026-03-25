@@ -1,0 +1,15 @@
+bin/
+obj/
+.vscode/
+.env
+appsettings.*.json
+appsettings.json
+*.user
+*.suo
+*.DS_Store
+*.log
+*.db
+.env.*
+.idea/
+*.swp
+*.sln.docstates
