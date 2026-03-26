@@ -15,9 +15,11 @@ namespace SyncVerse.Infrastructure
             services.AddIdentityCore<ApplicationUser>()
                 .AddEntityFrameworkStores<AppDbContext>();
             services.AddScoped<SyncVerse.Application.Services.IUserService, SyncVerse.Infrastructure.Services.UserService>();
-            services.AddScoped<SyncVerse.Application.Interfaces.IServerRepository, SyncVerse.Infrastructure.Repositories.ServerRepository>();
-            services.AddScoped<SyncVerse.Application.Interfaces.IChannelRepository, SyncVerse.Infrastructure.Repositories.ChannelRepository>();
-            services.AddScoped<SyncVerse.Application.Interfaces.IMessageRepository, SyncVerse.Infrastructure.Repositories.MessageRepository>();
+            services.AddScoped<SyncVerse.Infrastructure.Repositories.IServerRepository, SyncVerse.Infrastructure.Repositories.ServerRepository>();
+            services.AddScoped<SyncVerse.Infrastructure.Repositories.IChannelRepository, SyncVerse.Infrastructure.Repositories.ChannelRepository>();
+            services.AddScoped<SyncVerse.Infrastructure.Repositories.IMessageRepository, SyncVerse.Infrastructure.Repositories.MessageRepository>();
+            services.AddScoped<SyncVerse.Application.Services.IChannelService, SyncVerse.Infrastructure.Services.ChannelService>();
+            services.AddScoped<SyncVerse.Application.Services.IMessageService, SyncVerse.Infrastructure.Services.MessageService>();
             return services;
         }
     }
