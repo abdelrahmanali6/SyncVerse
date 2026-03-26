@@ -14,6 +14,10 @@ namespace SyncVerse.Infrastructure
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentityCore<ApplicationUser>()
                 .AddEntityFrameworkStores<AppDbContext>();
+            services.AddScoped<SyncVerse.Application.Services.IUserService, SyncVerse.Infrastructure.Services.UserService>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IServerRepository, SyncVerse.Infrastructure.Repositories.ServerRepository>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IChannelRepository, SyncVerse.Infrastructure.Repositories.ChannelRepository>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IMessageRepository, SyncVerse.Infrastructure.Repositories.MessageRepository>();
             return services;
         }
     }

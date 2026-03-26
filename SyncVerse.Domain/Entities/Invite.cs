@@ -1,5 +1,5 @@
 using System;
-namespace SyncVerse.Domain
+namespace SyncVerse.Domain.Entities
 {
     public class Invite
     {

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-namespace SyncVerse.Domain
+namespace SyncVerse.Domain.Entities
 {
     public class Server
     {
