@@ -1496,6 +1496,20 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
+      "SyncVerse.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.0-preview.3.24172.9",
+          "SyncVerse.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SyncVerse.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SyncVerse.Application.dll": {}
+        }
+      },
       "SyncVerse.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -4527,6 +4541,11 @@
         "version.txt"
       ]
     },
+    "SyncVerse.Application/1.0.0": {
+      "type": "project",
+      "path": "../SyncVerse.Application/SyncVerse.Application.csproj",
+      "msbuildProject": "../SyncVerse.Application/SyncVerse.Application.csproj"
+    },
     "SyncVerse.Domain/1.0.0": {
       "type": "project",
       "path": "../SyncVerse.Domain/SyncVerse.Domain.csproj",
@@ -4539,6 +4558,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 9.0.0-preview.3.24172.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.0-preview.3.24172.4",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.0-preview.3.24172.4",
+      "SyncVerse.Application >= 1.0.0",
       "SyncVerse.Domain >= 1.0.0"
     ]
   },
@@ -4567,6 +4587,9 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
+            "/Users/abdelrahmanali/Documents/SyncVerse/SyncVerse.Application/SyncVerse.Application.csproj": {
+              "projectPath": "/Users/abdelrahmanali/Documents/SyncVerse/SyncVerse.Application/SyncVerse.Application.csproj"
+            },
             "/Users/abdelrahmanali/Documents/SyncVerse/SyncVerse.Domain/SyncVerse.Domain.csproj": {
               "projectPath": "/Users/abdelrahmanali/Documents/SyncVerse/SyncVerse.Domain/SyncVerse.Domain.csproj"
             }

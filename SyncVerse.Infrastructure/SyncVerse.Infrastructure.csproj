@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SyncVerse.Domain\SyncVerse.Domain.csproj" />
+    <ProjectReference Include="..\SyncVerse.Application\SyncVerse.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

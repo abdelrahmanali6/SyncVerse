@@ -242,6 +242,9 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
+              "/Users/abdelrahmanali/Documents/SyncVerse/SyncVerse.Application/SyncVerse.Application.csproj": {
+                "projectPath": "/Users/abdelrahmanali/Documents/SyncVerse/SyncVerse.Application/SyncVerse.Application.csproj"
+              },
               "/Users/abdelrahmanali/Documents/SyncVerse/SyncVerse.Domain/SyncVerse.Domain.csproj": {
                 "projectPath": "/Users/abdelrahmanali/Documents/SyncVerse/SyncVerse.Domain/SyncVerse.Domain.csproj"
               }
