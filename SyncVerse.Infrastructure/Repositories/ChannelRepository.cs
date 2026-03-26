@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SyncVerse.Application.Interfaces;
-using SyncVerse.Domain;
+using SyncVerse.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

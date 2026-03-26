@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using SyncVerse.Domain;
+using SyncVerse.Domain.Entities;
 
 namespace SyncVerse.Infrastructure
 {

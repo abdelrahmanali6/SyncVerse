@@ -9,6 +9,8 @@ namespace SyncVerse.Infrastructure
     public static class ServiceRegistration
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+                    services.AddScoped<SyncVerse.Infrastructure.Repositories.IInviteRepository, SyncVerse.Infrastructure.Repositories.InviteRepository>();
+                    services.AddScoped<SyncVerse.Application.Services.IInviteService, SyncVerse.Infrastructure.Services.InviteService>();
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
@@ -22,5 +24,5 @@ namespace SyncVerse.Infrastructure
             services.AddScoped<SyncVerse.Application.Services.IMessageService, SyncVerse.Infrastructure.Services.MessageService>();
             return services;
         }
-    }
+}
 }

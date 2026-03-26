@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SyncVerse.Application.Interfaces;
-using SyncVerse.Domain;
+using SyncVerse.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -22,6 +22,7 @@ namespace SyncVerse.API.Controllers
         }
 
         [HttpGet]
+
         public async Task<IEnumerable<Server>> GetMyServers()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -29,12 +30,12 @@ namespace SyncVerse.API.Controllers
         }
 
         [HttpPost]
+
         public async Task<IActionResult> Create(Server server)
         {
             await _serverRepository.AddAsync(server);
             return Ok(server);
         }
 
-        // Additional endpoints for join, leave, invite can be added here
     }
 }

@@ -22,6 +22,7 @@ namespace SyncVerse.API.Controllers
         }
 
         [HttpGet("{id}")]
+
         public async Task<IActionResult> GetById(Guid id)
         {
             var channel = await _channelService.GetByIdAsync(id);
@@ -30,6 +31,7 @@ namespace SyncVerse.API.Controllers
         }
 
         [HttpPost]
+
         public async Task<IActionResult> Create([FromBody] CreateChannelDto dto)
         {
             var channel = await _channelService.CreateAsync(dto);
@@ -37,6 +39,7 @@ namespace SyncVerse.API.Controllers
         }
 
         [HttpPut("{id}")]
+
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateChannelDto dto)
         {
             var result = await _channelService.UpdateAsync(id, dto);
@@ -45,6 +48,7 @@ namespace SyncVerse.API.Controllers
         }
 
         [HttpDelete("{id}")]
+
         public async Task<IActionResult> Delete(Guid id)
         {
             var result = await _channelService.DeleteAsync(id);

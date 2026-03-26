@@ -1,8 +1,10 @@
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddOpenApi();
+builder.Services.AddSignalR();
 
 // Register Infrastructure (DbContext, Identity)
 SyncVerse.Infrastructure.ServiceRegistration.AddInfrastructure(builder.Services, builder.Configuration);
@@ -10,7 +12,7 @@ SyncVerse.Infrastructure.ServiceRegistration.AddInfrastructure(builder.Services,
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if(app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
@@ -36,6 +38,8 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+
+app.MapHub<SyncVerse.API.Hubs.ChatHub>("/hubs/chat");
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
