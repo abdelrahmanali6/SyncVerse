@@ -22,6 +22,8 @@ namespace SyncVerse.Infrastructure
             services.AddScoped<SyncVerse.Infrastructure.Repositories.IMessageRepository, SyncVerse.Infrastructure.Repositories.MessageRepository>();
             services.AddScoped<SyncVerse.Application.Services.IChannelService, SyncVerse.Infrastructure.Services.ChannelService>();
             services.AddScoped<SyncVerse.Application.Services.IMessageService, SyncVerse.Infrastructure.Services.MessageService>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IDirectMessageRepository, SyncVerse.Infrastructure.Repositories.DirectMessageRepository>();
+            services.AddScoped<SyncVerse.Application.Services.IDirectMessageService, SyncVerse.Infrastructure.Services.DirectMessageService>();
             return services;
         }
     }
