@@ -19,11 +19,13 @@ namespace SyncVerse.Infrastructure
             services.AddScoped<SyncVerse.Application.Services.IUserService, SyncVerse.Infrastructure.Services.UserService>();
             services.AddScoped<SyncVerse.Application.Interfaces.IServerRepository, SyncVerse.Infrastructure.Repositories.ServerRepository>();
             services.AddScoped<SyncVerse.Infrastructure.Repositories.IChannelRepository, SyncVerse.Infrastructure.Repositories.ChannelRepository>();
-            services.AddScoped<SyncVerse.Infrastructure.Repositories.IMessageRepository, SyncVerse.Infrastructure.Repositories.MessageRepository>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IMessageRepository, SyncVerse.Infrastructure.Repositories.MessageRepository>();
             services.AddScoped<SyncVerse.Application.Services.IChannelService, SyncVerse.Infrastructure.Services.ChannelService>();
             services.AddScoped<SyncVerse.Application.Services.IMessageService, SyncVerse.Infrastructure.Services.MessageService>();
             services.AddScoped<SyncVerse.Application.Interfaces.IDirectMessageRepository, SyncVerse.Infrastructure.Repositories.DirectMessageRepository>();
             services.AddScoped<SyncVerse.Application.Services.IDirectMessageService, SyncVerse.Infrastructure.Services.DirectMessageService>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IMessageReactionRepository, SyncVerse.Infrastructure.Repositories.MessageReactionRepository>();
+            services.AddScoped<SyncVerse.Application.Services.IMessageReactionService, SyncVerse.Infrastructure.Services.MessageReactionService>();
             return services;
         }
     }

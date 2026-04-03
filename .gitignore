@@ -9,7 +9,7 @@ appsettings.json
 *.DS_Store
 *.log
 *.db
-.env.*
+.env.* 
 .idea/
 *.swp
-*.sln.docstates
+*.sln.docstates 

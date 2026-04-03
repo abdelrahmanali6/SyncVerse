@@ -8,5 +8,7 @@ namespace SyncVerse.Application.Interfaces
     public interface IMessageRepository : IRepository<Message>
     {
         Task<IEnumerable<Message>> GetMessagesForChannelAsync(Guid channelId, int page, int pageSize);
+        Task<Message?> GetByIdWithReactionsAsync(Guid id);
+        Task<Guid?> GetChannelIdForMessageAsync(Guid messageId);
     }
 }

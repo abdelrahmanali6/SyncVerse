@@ -1,4 +1,5 @@
 using SyncVerse.Application.DTOs;
+using SyncVerse.Application.Interfaces;
 using SyncVerse.Application.Services;
 using SyncVerse.Domain.Entities;
 using SyncVerse.Infrastructure.Repositories;
@@ -20,7 +21,7 @@ namespace SyncVerse.Infrastructure.Services
 
         public async Task<MessageDto?> GetByIdAsync(Guid id)
         {
-            var message = await _messageRepository.GetByIdAsync(id);
+            var message = await _messageRepository.GetByIdWithReactionsAsync(id);
             if (message == null) return null;
             return new MessageDto
             {
@@ -28,7 +29,14 @@ namespace SyncVerse.Infrastructure.Services
                 Content = message.Content,
                 ChannelId = message.ChannelId,
                 SenderId = message.SenderId,
-                SentAt = message.SentAt
+                SentAt = message.SentAt,
+                Reactions = message.MessageReactions.Select(r => new MessageReactionDto
+                {
+                    Id = r.Id,
+                    MessageId = r.MessageId,
+                    UserId = r.UserId,
+                    Emoji = r.Emoji
+                })
             };
         }
 
@@ -41,7 +49,14 @@ namespace SyncVerse.Infrastructure.Services
                 Content = m.Content,
                 ChannelId = m.ChannelId,
                 SenderId = m.SenderId,
-                SentAt = m.SentAt
+                SentAt = m.SentAt,
+                Reactions = m.MessageReactions.Select(r => new MessageReactionDto
+                {
+                    Id = r.Id,
+                    MessageId = r.MessageId,
+                    UserId = r.UserId,
+                    Emoji = r.Emoji
+                })
             });
         }
 

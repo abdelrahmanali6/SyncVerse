@@ -12,6 +12,7 @@ namespace SyncVerse.Domain.Entities
         public Channel Channel { get; set; }
         public Guid? ReplyToMessageId { get; set; }
         public Message? ReplyToMessage { get; set; }
+        public ICollection<MessageReaction> MessageReactions { get; set; } = new List<MessageReaction>();
 
         // For compatibility with service/DTO naming
         public string SenderId { get => UserId; set => UserId = value; }
