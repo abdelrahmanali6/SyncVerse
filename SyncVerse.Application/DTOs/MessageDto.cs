@@ -16,4 +16,9 @@ namespace SyncVerse.Application.DTOs
         public Guid ChannelId { get; set; }
         public string SenderId { get; set; } = string.Empty;
     }
+
+    public class UpdateMessageDto
+    {
+        public string Content { get; set; } = string.Empty;
+    }
 }

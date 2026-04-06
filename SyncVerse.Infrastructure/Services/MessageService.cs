@@ -81,6 +81,16 @@ namespace SyncVerse.Infrastructure.Services
             };
         }
 
+        public async Task<bool> UpdateAsync(Guid id, string content)
+        {
+            var message = await _messageRepository.GetByIdAsync(id);
+            if (message == null) return false;
+            message.Content = content;
+            message.EditedAt = DateTime.UtcNow;
+            await _messageRepository.UpdateAsync(message);
+            return true;
+        }
+
         public async Task<bool> DeleteAsync(Guid id)
         {
             var message = await _messageRepository.GetByIdAsync(id);

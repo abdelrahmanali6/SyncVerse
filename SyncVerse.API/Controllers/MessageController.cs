@@ -45,6 +45,21 @@ namespace SyncVerse.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = message.Id }, message);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateMessageDto dto)
+        {
+            var updated = await _messageService.UpdateAsync(id, dto.Content);
+            if (!updated) return NotFound();
+
+            var message = await _messageService.GetByIdAsync(id);
+            if (message != null)
+            {
+                await _hubContext.Clients.Group(message.ChannelId.ToString()).SendAsync("UpdateMessage", message);
+            }
+
+            return NoContent();
+        }
+
         [HttpDelete("{id}")]
 
         public async Task<IActionResult> Delete(Guid id)

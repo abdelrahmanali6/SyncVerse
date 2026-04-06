@@ -26,6 +26,10 @@ namespace SyncVerse.Infrastructure
             services.AddScoped<SyncVerse.Application.Services.IDirectMessageService, SyncVerse.Infrastructure.Services.DirectMessageService>();
             services.AddScoped<SyncVerse.Application.Interfaces.IMessageReactionRepository, SyncVerse.Infrastructure.Repositories.MessageReactionRepository>();
             services.AddScoped<SyncVerse.Application.Services.IMessageReactionService, SyncVerse.Infrastructure.Services.MessageReactionService>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IAppFileRepository, SyncVerse.Infrastructure.Repositories.AppFileRepository>();
+            services.AddScoped<SyncVerse.Application.Services.IAppFileService, SyncVerse.Infrastructure.Services.AppFileService>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IFriendshipRepository, SyncVerse.Infrastructure.Repositories.FriendshipRepository>();
+            services.AddScoped<SyncVerse.Application.Services.IFriendshipService, SyncVerse.Infrastructure.Services.FriendshipService>();
             return services;
         }
     }
