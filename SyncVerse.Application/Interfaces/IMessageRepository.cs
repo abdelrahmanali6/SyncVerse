@@ -10,5 +10,6 @@ namespace SyncVerse.Application.Interfaces
         Task<IEnumerable<Message>> GetMessagesForChannelAsync(Guid channelId, int page, int pageSize);
         Task<Message?> GetByIdWithReactionsAsync(Guid id);
         Task<Guid?> GetChannelIdForMessageAsync(Guid messageId);
+        Task<Message?> GetByIdWithChannelAsync(Guid id);
     }
 }

@@ -30,6 +30,10 @@ namespace SyncVerse.Infrastructure
             services.AddScoped<SyncVerse.Application.Services.IAppFileService, SyncVerse.Infrastructure.Services.AppFileService>();
             services.AddScoped<SyncVerse.Application.Interfaces.IFriendshipRepository, SyncVerse.Infrastructure.Repositories.FriendshipRepository>();
             services.AddScoped<SyncVerse.Application.Services.IFriendshipService, SyncVerse.Infrastructure.Services.FriendshipService>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IUserRoleRepository, SyncVerse.Infrastructure.Repositories.UserRoleRepository>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IAuditLogRepository, SyncVerse.Infrastructure.Repositories.AuditLogRepository>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IServerBanRepository, SyncVerse.Infrastructure.Repositories.ServerBanRepository>();
+            services.AddScoped<SyncVerse.Application.Services.IModerationService, SyncVerse.Infrastructure.Services.ModerationService>();
             return services;
         }
     }

@@ -10,7 +10,7 @@ namespace SyncVerse.Application.Services
         Task<MessageDto?> GetByIdAsync(Guid id);
         Task<IEnumerable<MessageDto>> GetByChannelIdAsync(Guid channelId);
         Task<MessageDto> CreateAsync(CreateMessageDto dto);
-        Task<bool> UpdateAsync(Guid id, string content);
-        Task<bool> DeleteAsync(Guid id);
+        Task<bool> UpdateAsync(Guid id, string content, string performedById);
+        Task<bool> DeleteAsync(Guid id, string performedById);
     }
 }

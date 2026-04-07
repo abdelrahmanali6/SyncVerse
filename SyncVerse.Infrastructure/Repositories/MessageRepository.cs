@@ -30,6 +30,13 @@ namespace SyncVerse.Infrastructure.Repositories
                 .FirstOrDefaultAsync(m => m.Id == id);
         }
 
+        public async Task<Message?> GetByIdWithChannelAsync(Guid id)
+        {
+            return await _context.Messages
+                .Include(m => m.Channel)
+                .FirstOrDefaultAsync(m => m.Id == id);
+        }
+
         public async Task<Guid?> GetChannelIdForMessageAsync(Guid messageId)
         {
             return await _context.Messages

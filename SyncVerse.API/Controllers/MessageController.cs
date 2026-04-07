@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.SignalR;
 using SyncVerse.API.Hubs;
 using SyncVerse.Application.DTOs;
 using SyncVerse.Application.Services;
+using System.Security.Claims;
 
 namespace SyncVerse.API.Controllers
 {
@@ -48,7 +49,10 @@ namespace SyncVerse.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateMessageDto dto)
         {
-            var updated = await _messageService.UpdateAsync(id, dto.Content);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
+            var updated = await _messageService.UpdateAsync(id, dto.Content, userId);
             if (!updated) return NotFound();
 
             var message = await _messageService.GetByIdAsync(id);
@@ -64,7 +68,10 @@ namespace SyncVerse.API.Controllers
 
         public async Task<IActionResult> Delete(Guid id)
         {
-            var result = await _messageService.DeleteAsync(id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
+            var result = await _messageService.DeleteAsync(id, userId);
             if (!result) return NotFound();
             return NoContent();
         }

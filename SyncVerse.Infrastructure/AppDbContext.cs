@@ -20,6 +20,8 @@ namespace SyncVerse.Infrastructure
         public DbSet<Friendship> Friendships { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<AppFile> Files { get; set; }
+        public DbSet<ServerBan> ServerBans { get; set; }
+        public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<DirectMessage> DirectMessages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

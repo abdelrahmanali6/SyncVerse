@@ -13,10 +13,12 @@ namespace SyncVerse.Infrastructure.Services
     public class MessageService : IMessageService
     {
         private readonly IMessageRepository _messageRepository;
+        private readonly IModerationService _moderationService;
 
-        public MessageService(IMessageRepository messageRepository)
+        public MessageService(IMessageRepository messageRepository, IModerationService moderationService)
         {
             _messageRepository = messageRepository;
+            _moderationService = moderationService;
         }
 
         public async Task<MessageDto?> GetByIdAsync(Guid id)
@@ -81,20 +83,24 @@ namespace SyncVerse.Infrastructure.Services
             };
         }
 
-        public async Task<bool> UpdateAsync(Guid id, string content)
+        public async Task<bool> UpdateAsync(Guid id, string content, string performedById)
         {
-            var message = await _messageRepository.GetByIdAsync(id);
+            var message = await _messageRepository.GetByIdWithChannelAsync(id);
             if (message == null) return false;
+            if (message.SenderId != performedById && !await _moderationService.CanModerateAsync(performedById, message.Channel.ServerId)) return false;
+
             message.Content = content;
             message.EditedAt = DateTime.UtcNow;
             await _messageRepository.UpdateAsync(message);
             return true;
         }
 
-        public async Task<bool> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(Guid id, string performedById)
         {
-            var message = await _messageRepository.GetByIdAsync(id);
+            var message = await _messageRepository.GetByIdWithChannelAsync(id);
             if (message == null) return false;
+            if (message.SenderId != performedById && !await _moderationService.CanModerateAsync(performedById, message.Channel.ServerId)) return false;
+
             await _messageRepository.DeleteAsync(message);
             return true;
         }
