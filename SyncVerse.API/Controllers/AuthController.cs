@@ -45,5 +45,16 @@ namespace SyncVerse.API.Controllers
             if (profile == null) return NotFound();
             return Ok(profile);
         }
+
+        [Authorize]
+        [HttpPut("profile")]
+        public async Task<IActionResult> UpdateProfile([FromBody] UpdateUserProfileDto dto)
+        {
+            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null) return Unauthorized();
+            var result = await _userService.UpdateProfileAsync(userId, dto);
+            if (!result) return BadRequest();
+            return NoContent();
+        }
     }
 }

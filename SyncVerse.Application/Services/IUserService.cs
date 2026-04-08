@@ -8,5 +8,6 @@ namespace SyncVerse.Application.Services
         Task<string> RegisterAsync(UserRegisterDto dto);
         Task<string> LoginAsync(UserLoginDto dto);
         Task<UserProfileDto?> GetProfileAsync(string userId);
+        Task<bool> UpdateProfileAsync(string userId, UpdateUserProfileDto dto);
     }
 }

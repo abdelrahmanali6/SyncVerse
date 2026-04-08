@@ -47,9 +47,27 @@ namespace SyncVerse.Infrastructure.Services
                 Id = user.Id,
                 UserName = user.UserName ?? string.Empty,
                 Email = user.Email ?? string.Empty,
-                AvatarUrl = null,
+                AvatarUrl = user.AvatarUrl,
+                Bio = user.Bio,
+                Badge = user.Badge,
+                IsVerified = user.IsVerified,
                 IsOnline = false
             };
+        }
+
+        public async Task<bool> UpdateProfileAsync(string userId, UpdateUserProfileDto dto)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return false;
+
+            if (!string.IsNullOrWhiteSpace(dto.Bio))
+                user.Bio = dto.Bio;
+
+            if (dto.AvatarUrl != null)
+                user.AvatarUrl = dto.AvatarUrl;
+
+            var result = await _userManager.UpdateAsync(user);
+            return result.Succeeded;
         }
 
         private async Task<string> GenerateJwtToken(ApplicationUser user)

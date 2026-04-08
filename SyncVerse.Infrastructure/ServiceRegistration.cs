@@ -34,6 +34,9 @@ namespace SyncVerse.Infrastructure
             services.AddScoped<SyncVerse.Application.Interfaces.IAuditLogRepository, SyncVerse.Infrastructure.Repositories.AuditLogRepository>();
             services.AddScoped<SyncVerse.Application.Interfaces.IServerBanRepository, SyncVerse.Infrastructure.Repositories.ServerBanRepository>();
             services.AddScoped<SyncVerse.Application.Services.IModerationService, SyncVerse.Infrastructure.Services.ModerationService>();
+            services.AddScoped<SyncVerse.Application.Interfaces.IPinnedMessageRepository, SyncVerse.Infrastructure.Repositories.PinnedMessageRepository>();
+            services.AddScoped<SyncVerse.Application.Services.IPinnedMessageService, SyncVerse.Infrastructure.Services.PinnedMessageService>();
+            services.AddScoped<SyncVerse.Application.Services.IMessageSearchService, SyncVerse.Infrastructure.Services.MessageSearchService>();
             return services;
         }
     }
